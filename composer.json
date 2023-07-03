@@ -1,0 +1,19 @@
+{
+    "name": "theharisshah/statamic-seo",
+    "autoload": {
+        "psr-4": {
+            "Theharisshah\\StatamicSeo\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Statamic Seo",
+            "description": "Statamic Seo addon"
+        },
+        "laravel": {
+            "providers": [
+                "Theharisshah\\StatamicSeo\\ServiceProvider"
+            ]
+        }
+    }
+}
