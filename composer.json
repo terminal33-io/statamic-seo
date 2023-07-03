@@ -1,5 +1,13 @@
 {
     "name": "theharisshah/statamic-seo",
+    "license": "MIT",
+    "type": "statamic-add-on",
+    "authors": [
+        {
+          "name": "Haris Shah",
+          "email": "shahharis383@gmail.com"
+        }
+  ],
     "autoload": {
         "psr-4": {
             "Theharisshah\\StatamicSeo\\": "src"
