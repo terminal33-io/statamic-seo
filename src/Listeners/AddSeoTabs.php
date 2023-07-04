@@ -3,6 +3,7 @@
 namespace Theharisshah\StatamicSeo\Listeners;
 
 use Statamic\Events\EntryBlueprintFound;
+use Theharisshah\StatamicSeo\Blueprints\PerPageBlueprint;
 
 class AddSeoTabs
 {
@@ -10,24 +11,15 @@ class AddSeoTabs
     {
         $blueprint = $event->blueprint;
         $ignoreBlueprints = config('seo-settings.ignore_blueprints');
-        
+
         if (in_array($blueprint->handle(), $ignoreBlueprints)) {
             return;
         }
 
-        $blueprint->ensureFieldsInTab($this->addMetaFields(), 'SEO');
-    }
-
-
-    private function addMetaFields()
-    {
-        return [
-            'meta_title' => [
-                'type' => 'text',
-            ],
-            'meta_description' => [
-                'type' => 'textarea'
-            ]
-        ];
+        $contents = $event->blueprint->contents();
+        $pageSettingsBlueprint = PerPageBlueprint::getBlueprint();
+        $pageFields = $pageSettingsBlueprint->contents()['tabs']['main'];
+        $contents['tabs']['SEO'] = $pageFields;
+        $blueprint->setContents($contents);
     }
 }

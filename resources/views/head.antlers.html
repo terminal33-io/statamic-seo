@@ -1,5 +1,30 @@
-<title>{{ title }}</title>
+    {{ if noindex }}
+        <meta name="robots" content="noindex"/>
+    {{ else }}
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+    {{ /if }}
 
-{{ if description }}
-    <meta name="description" content="{{ description }}" />
-{{ /if }}
+        <title>{{ title }}</title>
+
+    {{ if description }}
+        <meta name="description" content="{{ description }}"/>
+    {{ /if }}
+
+    {{ if canonical_url }}
+        <link rel="canonical" href="{{ canonical_url }}"/>
+    {{ else }}
+        <link rel="canonical" href="{{ permalink }}"/>
+    {{ /if }}
+
+    {{ if og_image }}
+        {{ glide:og_image }}
+            <meta property="og:image" content="{{ permalink }}"/>
+            <meta property="og:image:width" content="{{ width }}"/>
+            <meta property="og:image:height" content="{{ height }}"/>
+            <meta property="og:image:alt" content="{{ alt }}"/>
+        {{ /glide:og_image }}
+    {{ /if }}
+
+    {{ if site_name }}
+        <meta property="og:site_name" content="{{ site_name }}"/>
+    {{ /if }}
