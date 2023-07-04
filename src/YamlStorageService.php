@@ -2,6 +2,7 @@
 
 namespace Theharisshah\StatamicSeo;
 
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Yaml\Yaml;
 use Statamic\Assets\Asset;
 use Statamic\Facades\Asset as AssetFacade;
@@ -27,9 +28,13 @@ class YamlStorageService
 
     public function parse()
     {
-        $data = Yaml::parseFile($this->filePath);
 
-        return $this->processAssets($data);
+        if (file_exists($this->filePath)) {
+            $data = Yaml::parseFile($this->filePath);
+
+            return $this->processAssets($data);
+        }
+        return [];
     }
 
     protected function processAssets($data)

@@ -15,7 +15,6 @@ class SeoTag extends Tags
     {
         $path = storage_path('statamic/addons/seo/settings.yaml');
         $generalSettings = (new YamlStorageService($path))->parse();
-
         $data['title'] = $this->parseData('meta_title', $this->context, $generalSettings);
         $data['description'] = $this->parseData('meta_description', $this->context, $generalSettings);
         $data['canonical_url'] = $this->parseData('canonical_url', $this->context, $generalSettings);
@@ -35,6 +34,7 @@ class SeoTag extends Tags
         if (empty($text)) {
             return '';
         }
+
         return preg_replace_callback($pattern, function ($matches) use ($context, $generalSettings) {
             $word = $matches[1];
             return strip_tags($context->get("$word") ?? $generalSettings["$word"] ?? $word);
