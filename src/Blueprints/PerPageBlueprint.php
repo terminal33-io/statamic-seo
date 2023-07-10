@@ -2,9 +2,6 @@
 
 namespace Theharisshah\StatamicSeo\Blueprints;
 
-use Statamic\Facades\Blueprint;
-use Theharisshah\StatamicSeo\Contracts\BlueprintContract;
-
 class PerPageBlueprint extends BlueprintAbstract
 {
 

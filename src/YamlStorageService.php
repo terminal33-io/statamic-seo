@@ -2,7 +2,6 @@
 
 namespace Theharisshah\StatamicSeo;
 
-use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Yaml\Yaml;
 use Statamic\Assets\Asset;
 use Statamic\Facades\Asset as AssetFacade;

@@ -19,7 +19,7 @@ class SeoTag extends Tags
         $data['description'] = $this->parseData('meta_description', $this->context, $generalSettings);
         $data['canonical_url'] = $this->parseData('canonical_url', $this->context, $generalSettings);
         $data['site_name'] = $this->parseData('site_name', $this->context, $generalSettings);
-        $data['og_image'] = $this->context->value('og_image') ?? $generalSettings['default_og_image'];
+        $data['og_image'] = $this->context->value('og_image') ?? $generalSettings['default_og_image'] ?? null;
         $data['permalink'] = $this->context->value('permalink');
 
         return (new View())
