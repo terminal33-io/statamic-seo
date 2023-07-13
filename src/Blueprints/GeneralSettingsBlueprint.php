@@ -67,6 +67,7 @@ class GeneralSettingsBlueprint extends BlueprintAbstract
                 'max_files' => 1,
                 'restrict' => false,
                 'display' => 'OG Image',
+                'container' => config('seo-settings.asset_container'),
                 'instructions' => 'Select the default Open Graph image in case a page or post do not have that set up. ' .
                     'Recommended size `1.91:1` (e.g. `1200x627`).',
                 'validate' => [

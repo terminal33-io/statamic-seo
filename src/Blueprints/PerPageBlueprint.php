@@ -75,6 +75,7 @@ class PerPageBlueprint extends BlueprintAbstract
                 'type' => 'assets',
                 'max_files' => 1,
                 'restrict' => false,
+                'container' => config('seo-settings.asset_container'),
                 'display' => 'OG Image',
                 'instructions' => 'Control how this page looks when shared on websites which interpret Open Graph data (Facebook, LinkedIn etc).',
                 'validate' => [
