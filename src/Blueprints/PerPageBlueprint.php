@@ -37,7 +37,6 @@ class PerPageBlueprint extends BlueprintAbstract
             'field' => [
                 'type' => 'textarea',
                 'display' => 'Meta Description',
-                'character_limit' => 160,
             ]
         ];
     }
