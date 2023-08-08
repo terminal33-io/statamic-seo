@@ -23,5 +23,8 @@
                 "Theharisshah\\StatamicSeo\\ServiceProvider"
             ]
         }
+    },
+    "require": {
+        "spatie/laravel-sitemap": "^6.3"
     }
 }
